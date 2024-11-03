@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+//        let encryptionKey = Data(repeating: 0, count: 64) // Replace with your secure key
+//        let config = Realm.Configuration(encryptionKey: encryptionKey)
+//                
+//        print(Realm.Configuration.defaultConfiguration)
+        
+        let data = Data()
+        data.name = "indrya"
+        data.age = 25
+        
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(data)
+            }
+        } catch {
+            print("Error initializing new Realm \(error)")
+        }
+        
         return true
     }
 
