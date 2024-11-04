@@ -27,16 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let config = Realm.Configuration(encryptionKey: encryptionKey)
 //                
 //        print(Realm.Configuration.defaultConfiguration)
-        
-        let data = Data()
-        data.name = "indrya"
-        data.age = 25
-        
+    
         do {
             let realm = try Realm()
-            try realm.write {
-                realm.add(data)
-            }
+//            try realm.write {
+//                realm.add(data)
+//            }
         } catch {
             print("Error initializing new Realm \(error)")
         }
